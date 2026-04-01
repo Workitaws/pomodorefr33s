@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍅 Pomodoro Timer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <div class="container">
+        <h1><i class="fas fa-clock tomato-icon"></i> Pomodoro Timer</h1>
+        
+        <div class="mode-indicator">
+            <button class="mode-btn active" id="workModeBtn">Trabajo</button>
+            <button class="mode-btn" id="breakModeBtn">Descanso</button>
+        </div>
+        
+        <div class="progress-ring">
+            <svg width="200" height="200">
+                <circle cx="100" cy="100" r="90" stroke="#f0f0f0" stroke-width="10" fill="transparent" class="dark-mode-circle"></circle>
+                <circle cx="100" cy="100" r="90" stroke="#f44336" stroke-width="10" fill="transparent" 
+                        stroke-dasharray="565.48" stroke-dashoffset="0" id="progressCircle"
+                        class="progress-ring-circle"></circle>
+            </svg>
+            <div class="timer-display" id="timerDisplay">25:00</div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn btn-primary" id="startBtn">
+                <i class="fas fa-play"></i> Iniciar
+            </button>
+            <button class="btn btn-secondary" id="pauseBtn" disabled>
+                <i class="fas fa-pause"></i> Pausar
+            </button>
+            <button class="btn btn-danger" id="resetBtn">
+                <i class="fas fa-redo"></i> Reiniciar
+            </button>
+        </div>
+        
+        <div class="settings">
+            <div class="setting-row">
+                <label for="workTime"><i class="fas fa-briefcase"></i> Tiempo de trabajo (min):</label>
+                <input type="number" id="workTime" class="number-input" value="25" min="1" max="60">
+            </div>
+            <div class="setting-row">
+                <label for="breakTime"><i class="fas fa-coffee"></i> Tiempo de descanso (min):</label>
+                <input type="number" id="breakTime" class="number-input" value="5" min="1" max="30">
+            </div>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-value" id="pomodoroCount">0</div>
+                <div class="stat-label">Pomodoros</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalWorkTime">0</div>
+                <div class="stat-label">Minutos trabajados</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
